@@ -70,12 +70,9 @@ function sendEmail() {
     });
   });
 }
-app.get('/', (req, res) => {
-  res.status(200).send('hello wordl')
-});
 
 // Route for sending email
-app.get('/s', (req, res) => {
+app.get('/', (req, res) => {
   sendEmail()
     .then((response) => res.send(response.message))
     .catch((error) => res.status(500).send(error.message));
